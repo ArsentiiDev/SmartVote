@@ -8,9 +8,8 @@ import axios from 'axios'
 import { clearEditingObject, toggleAddHeuristicModal } from '@/store/uiSlice'
 import { addHeuristic, editHeuristic } from '@/store/dataSlice'
 import { IHeuristic } from '@/Types/Interfaces'
-type Props = {}
 
-const AddHeuristicForm = (props: Props) => {
+const AddHeuristicForm = () => {
     const activeVoting = useSelector((state: RootState) => state.ui.activeVotingIndex);
     const editingObject = useSelector((state: RootState) => state.ui.editingObject)
 

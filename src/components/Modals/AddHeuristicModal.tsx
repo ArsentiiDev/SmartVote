@@ -7,9 +7,8 @@ import AddObjectForm from '../Forms/AddObjectForm'
 import AddHeuristicForm from '../Forms/AddHeuristicForm'
 import { RootState } from '@/store/store'
 
-type Props = {}
 
-const AddHeuristicModal = (props: Props) => {
+const AddHeuristicModal = () => {
     const editingObject = useSelector((state: RootState) => state.ui.editingObject)
 
     const dispatch = useDispatch();

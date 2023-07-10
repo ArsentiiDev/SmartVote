@@ -11,7 +11,6 @@ import { sendEmail } from '@/util/helpers';
 import { renderToStaticMarkup } from 'react-dom/server';
 import Email from './VotingEmailForm';
 
-type Props = {};
 
 interface ImportFormValues {
   file: File | null;
@@ -20,7 +19,7 @@ interface ImportFormValues {
   importOption: string;
 }
 
-const ImportFileForm = (props: Props) => {
+const ImportFileForm = () => {
   const activeVoting = useSelector(
     (state: RootState) => state.ui.activeVotingIndex
   );

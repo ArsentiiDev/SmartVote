@@ -9,7 +9,6 @@ const WinnersCard: React.FC = () => {
     const results = useSelector((state:RootState) => state.data.votings.find(voting => voting._id === activeVoting)?.results);
     return (
         <div className="my-12">
-            {/* <p>{JSON.stringify(results)}</p> */}
             <h2>{TEXT_CONSTANTS.WINNERS_SET}</h2>
             <div className="flex w-full gap-x-8">
             <div>

@@ -7,9 +7,8 @@ import { switchCriteria, switchMethod } from '@/store/uiSlice';
 import axios from 'axios';
 import { clearResults, setResults } from '@/store/dataSlice';
 
-type Props = {};
 
-const Criteria: React.FC<Props> = (props) => {
+const Criteria: React.FC = () => {
   const selectedCriteria = useSelector(
     (state: RootState) => state.ui.selectedCriteria
   );

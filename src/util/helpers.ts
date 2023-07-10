@@ -25,7 +25,7 @@ export function transformAssessments(assessments: Map<string, string[]>, objects
     return transformedAssessments;
   }
   
-  export function generateCombinations(objects:Object[]) {
+  export function generateCombinations(objects:VotingObject[]) {
     const n = objects.length;
     const combinations: any = [];
   

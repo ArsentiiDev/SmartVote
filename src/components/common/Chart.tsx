@@ -4,7 +4,7 @@ import React, { PureComponent, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const CustomTooltip = ({ active, payload, label }: {active: any, payload: any, label: any}) => {
+const CustomTooltip = ({ active, payload, label }: {active?: any, payload?: any, label?: any}) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip bg-background px-6 py-2 border border-main-secondary flex flex-col items-center">
@@ -39,7 +39,7 @@ export default function Chart ({}) {
   const activeVoting = useSelector((state: RootState) => state.ui.activeVotingIndex);
   const assessments = useSelector((state:RootState) => state.data.votings.find(voting => voting._id === activeVoting)?.assessments);
 
-  function convertAssessmentsToVotings(assessments: Record<string, string[]>): ChartData[] {
+  function convertAssessmentsToVotings(assessments: Record<string, string[]>): any[] {
     const objectVotings: Map<string, number[]> = new Map();
     
     for (const expertId in assessments) {
@@ -76,7 +76,7 @@ export default function Chart ({}) {
         <BarChart
           width={500}
           height={300}
-          data={assessments ? convertAssessmentsToVotings(assessments): null}
+          data={assessments ? convertAssessmentsToVotings(assessments): undefined}
           margin={{
             top: 0,
             right: 0,

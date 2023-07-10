@@ -9,9 +9,8 @@ import { RootState } from '@/store/store';
 import ToggleSwitch from '../common/ToggleSwitch';
 import ImportFileForm from '../Forms/ImportFileForm';
 
-type Props = {};
 
-function AddExpertModal({}: Props) {
+function AddExpertModal() {
   const editingObject = useSelector(
     (state: RootState) => state.ui.editingObject
   );

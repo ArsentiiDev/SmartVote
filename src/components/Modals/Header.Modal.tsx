@@ -5,9 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Button from '../common/Button'
 import { switchActiveVote, toggleAddVotingModal, toggleVotingDropdown } from '@/store/uiSlice'
 
-type Props = {}
 
-const HeaderDropdownModal = (props: Props) => {
+const HeaderDropdownModal = () => {
     const votings = useSelector((state: RootState) => state.data.votings)
 
     const activeVoting = useSelector((state: RootState) => state.ui.activeVotingIndex);

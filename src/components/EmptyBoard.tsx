@@ -6,9 +6,8 @@ import Button from './common/Button'
 import { RootState } from '@/store/store'
 import AddVotingModal from './Modals/AddVotingModal'
 
-type Props = {}
 
-const EmptyBoard = (props: Props) => {
+const EmptyBoard = () => {
     const isAddVotingModalOpen = useSelector((state: RootState) => state.ui.isAddVotingModalOpen);
 
     const dispatch = useDispatch();

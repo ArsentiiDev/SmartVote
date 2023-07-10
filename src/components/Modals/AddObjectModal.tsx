@@ -8,9 +8,8 @@ import { RootState } from '@/store/store'
 import ImportFileForm from '../Forms/ImportFileForm'
 import ToggleSwitch from '../common/ToggleSwitch'
 
-type Props = {}
 
-const AddObjectModal: React.FC = (props: Props) => {
+const AddObjectModal: React.FC = () => {
     const [isImport, setImport] = useState<boolean>(false)
     const editingObject = useSelector((state: RootState) => state.ui.editingObject)
 

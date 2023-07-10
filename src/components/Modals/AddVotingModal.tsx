@@ -6,9 +6,8 @@ import Image from 'next/image'
 import AddExpertForm from '../Forms/AddExpertForm'
 import AddVotingForm from '../Forms/AddVotingForm'
 
-type Props = {}
 
-const AddVotingModal = (props: Props) => {
+const AddVotingModal = () => {
     const dispatch = useDispatch();
     return (
         <Modal event={() => dispatch(toggleAddVotingModal())}>
