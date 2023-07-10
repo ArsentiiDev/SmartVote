@@ -6,6 +6,11 @@ Built on Next.js, Typescript, Tailwind, MongoDB + Mongoose, Redux, Jest.
 
 It utilizes algebraic algorithm to find the best solution that is mathematically justified.
 
+![image](https://github.com/ArsentiiDev/SmartVote/assets/56321438/47bcd3de-bd92-449c-9513-5d96e6d66191)
+![image](https://github.com/ArsentiiDev/SmartVote/assets/56321438/e281dccd-8cdb-4073-9eb0-21c139d23d8c)
+
+
+
 ## Features
 
 1. User authentification
