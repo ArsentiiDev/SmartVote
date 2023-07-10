@@ -60,7 +60,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
           const inputData = body.data &&  Array.isArray(body.data) ? {data: body.data, votingId: body.votingId, importOption: body.importOption} : {data: [[body.title, body.description]], votingId: body.votingId};
           //console.log('inputData', body)
           const objects:IObject[] = [];
-            const object:any = await createObjects(inputData);
+            const object:any = await createObjects(inputData as any);
             objects.push(...object);
           return res.status(200).json({ success: true, objects: objects });
       case 'DELETE':

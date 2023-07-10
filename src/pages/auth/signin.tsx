@@ -12,12 +12,12 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required("Password is required"),
   confirmPassword: Yup.string()
     .required("Confirm Password is required")
-    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+    .oneOf([Yup.ref("password")], "Passwords must match"),
 });
 
-const Signin = ({ providers }) => {
+const Signin = ({ providers }: {providers:any}) => {
   const formikRef = useRef(null);
-  const [authType, setAuthType] = useState("Login");
+  const [authType, setAuthType] = useState<any>("Login");
   const oppAuthType = {
     Login: "Register",
     Register: "Login",
@@ -53,7 +53,7 @@ const Signin = ({ providers }) => {
     if (pathname.includes('/auth')) router.push("/")
   }
 
-  const loginUser = async (values) => {
+  const loginUser = async (values:any) => {
     const res:any = await signIn("credentials", {
         email: values.email,
         password: values.password,
@@ -63,7 +63,7 @@ const Signin = ({ providers }) => {
       res.error ? console.log(res.error) : redirectToHome()
   }
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values:any) => {
     authType === "Login" ? loginUser(values): registerUser(values)
   };
 
@@ -81,9 +81,9 @@ const Signin = ({ providers }) => {
             <a
               href="#"
               className="underline"
-              onClick={() => setAuthType(oppAuthType[authType])}
+              onClick={() => setAuthType(oppAuthType[authType as "Login" | "Register"])}
             >
-              {oppAuthType[authType]}
+              {oppAuthType[authType as "Login" | "Register"]}
             </a>
           </p>
           <p className="mt-6 text-sm text-center text-gray-300">
@@ -171,7 +171,7 @@ const Signin = ({ providers }) => {
                 </span>
                 <div className="flex flex-col space-y-4">
                   {providers &&
-                    Object.values(providers).map((provider) => {
+                    Object.values(providers).map((provider:any) => {
                       if (provider.name !== "Credentials") {
                         return (
                           <div key={provider.name} style={{ marginBottom: 0 }}>
@@ -200,7 +200,7 @@ const Signin = ({ providers }) => {
 
 export default Signin;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:any) {
   const { req } = context;
   const session = await getSession({ req });
   const providers = await getProviders();

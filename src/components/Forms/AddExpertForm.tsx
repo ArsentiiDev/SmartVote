@@ -105,7 +105,7 @@ const AddExpertForm = () => {
                 name="name"
               />
               {errors.name && touched.name && (
-                <p className=" text-status-rejected mt-1">{errors.name}</p>
+                <p className=" text-status-rejected mt-1">{errors.name as string}</p>
               )}
             </div>
             <div>
@@ -119,7 +119,7 @@ const AddExpertForm = () => {
                 name="email"
               />
               {errors.email && touched.email && (
-                <p className=" text-status-rejected mt-1">{errors.email}</p>
+                <p className=" text-status-rejected mt-1">{errors.email as string}</p>
               )}
             </div>
             <Button className="w-full bg-main-primary rounded py-3">

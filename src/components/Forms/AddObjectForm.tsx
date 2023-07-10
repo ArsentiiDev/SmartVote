@@ -1,4 +1,4 @@
-import { Formik, Form, Field, FormikHelpers, setFieldValue } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import React, { ChangeEventHandler, useState } from 'react';
 import * as Yup from 'yup';
 import Button from '../common/Button';
@@ -102,7 +102,7 @@ function AddObjectForm() {
                                 name="title"
                             />
                             {errors.title && touched.title && (
-                                <p className=" text-status-rejected mt-1">{errors.title}</p>
+                                <p className=" text-status-rejected mt-1">{errors.title as string}</p>
                             )}
                         </div>
                         <div>

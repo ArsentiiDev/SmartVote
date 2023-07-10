@@ -136,12 +136,8 @@ export class Vote {
             let sum:any
             this.applyHeuristics()
             this.filterObjects()
-            // console.log('ASS', this.assessments)
-            // console.log('OBJ', this.objects)
             const matrixA = generateCombinations(this.objects);
-            // console.log('MATRIXA', matrixA)
             const matrixB = transformAssessments(this.assessments, this.objects)
-            // console.log('MATRIXA', matrixB)
             const resultMatrix = calculateMatrix(matrixA, matrixB);
             if (resultMatrix) {
                 switch(this.criteria) {
@@ -156,13 +152,11 @@ export class Vote {
                         break;
                 }
             }
-            //console.log(sum)
             sum.minRowIndex.sort((a:[number[], number, number],b:[number[], number, number]) => a[2] - b[2]);
             const result:IResult[] = [];
             
             for (let i = 0; i < sum.minRowIndex.length; i++) {
-                console.log('ass',matrixB )
-                console.log(resultMatrix[sum.minRowIndex[i][0]])
+                console.log(resultMatrix![sum.minRowIndex[i][0]])
                 console.log('matrixa', matrixA[sum.minRowIndex[i][0]])
                 console.log('set', matrixA[sum.minRowIndex[i][0]].map((num:number) => this.objects[num - 1].title))
                 result.push({

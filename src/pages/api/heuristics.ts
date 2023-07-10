@@ -71,7 +71,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
           throw new Error('Invalid heuristicData')
         }
         if(newHeuristicData.placing === undefined) newHeuristicData.placing = null;
-        const updatedHeuristic = await updateHeuristic(heuristicId, newHeuristicData, votingIdInput);        
+        const updatedHeuristic = await updateHeuristic(heuristicId, newHeuristicData as any, votingIdInput);        
         return res.status(200).json({ success: true, object: updatedHeuristic });
       default:
         res.setHeader('Allow', ['GET', 'POST', 'DELETE', 'PUT']);

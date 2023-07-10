@@ -23,10 +23,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
     
                 for (const heuristic of currentVoting.heuristics) {
-                    const newHeuristic = new Heuristic(heuristic._id, heuristic.sum, heuristic.placing)
+                    const newHeuristic = new Heuristic(heuristic._id, heuristic.sum, heuristic.placing as number)
                     voteInstance.addHeuristic(newHeuristic)
                 }
-                voteInstance.setAssessments(currentVoting.assessments!)
+                voteInstance.setAssessments(currentVoting.assessments! as any)
                 voteInstance.setObjectPlacements(currentVoting!.votes)
                 const result = voteInstance.vote();
                 await setResults(result, votingId)

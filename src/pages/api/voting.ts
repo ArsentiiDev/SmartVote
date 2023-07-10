@@ -15,7 +15,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse<IS
         case 'GET': 
             try {
                 const {userEmail} = query;
-                const votings = await getVotings(userEmail);
+                const votings = await getVotings(userEmail as string);
                 if (!votings) {
                     throw new Error('Votings are not found');
                 } else {

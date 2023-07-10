@@ -34,12 +34,12 @@ const validateForm = async (
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<IErrorResponse | ISuccessResponse>
+  res: NextApiResponse<IErrorResponse | ISuccessResponse<any>>
 ) {
   if (req.method !== "POST") {
     return res
       .status(400)
-      .json({success: false,  error: "This API call only accepts POST methods" });
+      .json({success: false,  message: "This API call only accepts POST methods" });
   }
 
   const { username, email, password } = req.body;
@@ -48,7 +48,7 @@ export default async function handler(
 
   const errorMessage = await validateForm(username, email, password);
   if (errorMessage) {
-    return res.status(400).json({success: false, message: errorMessage});
+    return res.status(400).json({success: false, message: errorMessage as any});
   }
 
   const hashedPassword = await bcrypt.hash(password, 12);

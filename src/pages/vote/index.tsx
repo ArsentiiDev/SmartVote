@@ -31,12 +31,10 @@ const VotingForm: React.FC = ({}) => {
       votingId: router.query.votingId,
     };
     try {
-      //console.log('onSubmit', newAssessment);
-      const response: ISuccessResponse<any> = await axios.post(
+      const response: any = await axios.post(
         `/api/submitForm`,
         newAssessment
       );
-      //console.log('index response', response);
       if (response.data.success) {
         const newVote = {
           scores: response.data.object as string[],

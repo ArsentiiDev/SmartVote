@@ -16,7 +16,7 @@ interface UiSlice extends sidebar {
     isAddExpertModalOpen: boolean,
     isAddHeuristicModalOpen: boolean,
     isVotingModalOpen: boolean,
-    editingObject: IObject | IExpert | IHeuristic | null,
+    editingObject: any,
     selectedCriteria: string | null
 }
 

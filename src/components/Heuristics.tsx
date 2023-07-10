@@ -12,7 +12,7 @@ const Heuristics: React.FC = () => {
     const activeVoting = useSelector((state: RootState) => state.ui.activeVotingIndex);
     const heuristics = useSelector((state:RootState) => state.data.votings.find(voting => voting._id === activeVoting)?.heuristics);
 
-    const convertToData = (): convertObjectToCardData[] | undefined => {
+    const convertToData = (): convertObjectToCardData[] | any => {
         return heuristics && heuristics.map((el, index) => {
             return {
                 id: el._id,

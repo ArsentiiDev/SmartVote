@@ -69,13 +69,13 @@ const authOptions = {
         signIn: '/auth/signin',
     },
     callbacks: {
-        async jwt({token, user}) {
+        async jwt({token, user}: {token:any, user:any}) {
             return token
         },
-        async session({session, token}) {
+        async session({session, token}: {session:any, token:any}) {
             return session
         }
      },
     adapter: MongoDBAdapter(clientPromise),
 }
-export default NextAuth(authOptions)
+export default NextAuth(authOptions as any)

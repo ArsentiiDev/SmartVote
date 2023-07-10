@@ -1,9 +1,7 @@
 import dbConnect from '@/lib/dbConnect';
 import {
-  createExpert,
   createExperts,
   deleteExpert,
-  getExperts,
   updateExpert,
 } from '@/models/Voting';
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -70,14 +68,14 @@ export default async function handler(
               }
             : { data: [[body.name, body.email]], votingId: body.votingId };
         const expertsPost: IExpert[] | IExpert = [];
-        const result:any = await createExperts(inputData);
+        const result:any = await createExperts(inputData as any);
         if (result.success) {
           expertsPost.push(...result.experts);
           //console.log('CREATE EXPERTS', result.experts)
           return res.status(200).json({ success: true, objects: expertsPost });
         } else {
           console.error('Failed to create experts', result.error);
-          return res.status(400).json({ success: false, error: result.error });
+          return res.status(400).json({ success: false, message: result.error });
         }
 
       case 'DELETE':
@@ -109,7 +107,7 @@ export default async function handler(
             newExpertData,
             votingIdInput
           );
-          res.status(200).json({ success: true, object: updatedExpert });
+          res.status(200).json({ success: true, object: updatedExpert as IExpert });
         } else {
           res
             .status(400)

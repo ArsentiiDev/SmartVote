@@ -1,4 +1,4 @@
-export function calculateMatrix(a, b) {
+export function calculateMatrix(a:number[][], b:number[][]) {
     const rowsA = a.length,
       colsA = a[0].length;
     const rowsB = b.length,
@@ -34,29 +34,26 @@ export function calculateMatrix(a, b) {
     return result;
   }
 
-export function findSmallestSum(array) {
-    let minSum = Number.MAX_VALUE; // початкове значення мінімальної суми
-    let minRowIndex = []; // масив для зберігання індексів рядків з мінімальною сумою
+export function findSmallestSum(array:any) {
+    let minSum = Number.MAX_VALUE; 
+    let minRowIndex :any= []; 
     let cRows = array.length;
     let cCols = array[0].length;
   
-    // проходимо по кожному рядку результуючої матриці
     for (let i = 0; i < cRows; i++) {
-      let rowSum = 0; // змінна для зберігання суми елементів рядка
+      let rowSum = 0;
       let maxN = 0;
   
-      // проходимо по кожному елементу рядка
       for (let j = 0; j < cCols; j++) {
         if (array[i][j] > maxN) maxN = array[i][j]
-        rowSum += array[i][j]; // додаємо елемент до суми
+        rowSum += array[i][j];
       }
   
-      // порівнюємо поточну суму з мінімальною
       if (rowSum < minSum) {
-        minSum = rowSum; // зберігаємо нову мінімальну суму
-        minRowIndex = [[i, maxN, minSum]]; // зберігаємо новий індекс рядка
+        minSum = rowSum;
+        minRowIndex = [[i, maxN, minSum]];
       } else if (rowSum === minSum) {
-        minRowIndex.push([i, maxN,minSum]); // якщо сума рядка співпадає з мінімальною, то додаємо індекс до масиву
+        minRowIndex.push([i, maxN,minSum]);
       }
     }
   
